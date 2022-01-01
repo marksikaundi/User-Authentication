@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 const LoginScreen = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     return (
         <KeyboardAvoidingView style={styles.container}
         behavior="padding"
@@ -9,18 +12,26 @@ const LoginScreen = () => {
             <View style={styles.inputContainer}>
                 <TextInput 
                 placeholder="Email"
-                // value={}
-                // onChangeText={text => }
+                value={email}
+                onChangeText={text => setEmail(text)}
                 style={styles.input}
                 />
 
                 <TextInput 
                 placeholder="Password"
-                // value={}
-                // onChangeText={text => }
+                value={password}
+                onChangeText={text => setPassword(text)}
+                style={styles.input}
+                secureTextEntry
+                />
+
+                {/* <TextInput 
+                placeholder="Password"
+                value={password}
+                onChangeText={text => setPassword(password)}
                 secureTextEntry
                 style={styles.input}
-                />
+                /> */}
             </View>
 
             <View style={styles.buttonContainer}>
